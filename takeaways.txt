@@ -1,0 +1,5 @@
+* Core components: model, view, router, collection.
+* Communication between views and models is event-driven.
+* Supports data-binding through events or a separate key-value observing library.
+* Offers support for restful interfaces out of the box, so models can be easy to a back-end.
+* agnostis about templating frameworks but underscore's microtemplating is available by default.
