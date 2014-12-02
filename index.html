@@ -37,16 +37,30 @@
 			//Listening to the changing of the title:
 			var ObservableTodo = Backbone.Model.extend({
 				defaults : {
-					title : 'No-title',
 					completed : false
+				},
+
+				//Backbone supports model validation through model.validate()
+				//By default validation occurs when the model is persisted via the save()
+				//Or whe set() is called if {validate: true} is passed
+				validate : function(attrs){
+					if(attrs.title === undefined){
+						return 'Title is required!';
+					}
 				},
 
 				initialize : function(){
 					console.log('Initializing...');
 
+					//You can listen to changes of any or particular attributes.	
 					this.on('change:title', function(){
 						console.log('Change has occured');
 						console.log(JSON.stringify(this));
+					});
+
+					//Logs validation errors:
+					this.on("invalid", function(model, error){
+						console.log(error);
 					});
 				}
 			});
@@ -54,7 +68,19 @@
 
 			var obsTodo1 = new ObservableTodo();
 			obsTodo1.set('title', 'New Title'); //Will trigger the listener.
-			obsTodo1.set('completed', 'true'); // Will be ignored.
+			obsTodo1.set('completed', 'true'); // Will be ignored by the listener.
+
+
+			var invalidTodo = new ObservableTodo();
+			invalidTodo.set('completed', true, {validate : true});
+			//Logs validation msg. Completed is not true as validation method has not been passed
+			console.log('Completed: ' + invalidTodo.get('completed'));
+
+			invalidTodo.set('title', 'New Title'); //now it's valid
+			invalidTodo.set('completed', true, {validate : true});
+			console.log('And now Completed: ' + invalidTodo.get('completed'));
+
+
 
 		})();
 	</script>
