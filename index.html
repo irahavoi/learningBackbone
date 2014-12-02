@@ -30,7 +30,31 @@
 				completed : true
 			});
 
-			console.log(JSON.stringify(todo2));
+			//Getters:
+			console.log(todo2.get('title'));
+			console.log(todo2.get('completed'));
+
+			//Listening to the changing of the title:
+			var ObservableTodo = Backbone.Model.extend({
+				defaults : {
+					title : 'No-title',
+					completed : false
+				},
+
+				initialize : function(){
+					console.log('Initializing...');
+
+					this.on('change:title', function(){
+						console.log('Change has occured');
+						console.log(JSON.stringify(this));
+					});
+				}
+			});
+
+
+			var obsTodo1 = new ObservableTodo();
+			obsTodo1.set('title', 'New Title'); //Will trigger the listener.
+			obsTodo1.set('completed', 'true'); // Will be ignored.
 
 		})();
 	</script>
