@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+	</script>
+	<script src="http://documentcloud.github.com/underscore/underscore-min.js">
+	</script>
+	<script src="http://documentcloud.github.com/backbone/backbone-min.js">
+	</script>
+	<script>
+		(function(){
+			var Todo = Backbone.Model.extend({
+			// Default todo attribute values
+			defaults: {
+				title: '',
+				completed: false
+			}
+			});
+			
+			var todo1 = new Todo();
+
+			console.log(JSON.stringify(todo1));
+
+			var todo2 = new Todo({
+				title : "I have a title",
+				completed : true
+			});
+
+			console.log(JSON.stringify(todo2));
+
+		})();
+	</script>
+</body>
+</html>
