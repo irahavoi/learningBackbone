@@ -27,6 +27,21 @@
 
 			var myTodo = new Todo({title : 'Read the Backbone book', id : 2});
 			var todos = new TodosCollection([myTodo]);
+
+			todos.add({
+				title : 'Create an awesome backbone app',
+				completed : false
+			});
+
+			todos.add({
+				title : 'Learn how to make apps with Sencha Touch',
+				completed : true
+			});
+
+			todos.add({
+				title : 'Start earning >100k',
+				completed : false
+			});
 			console.log('Collection size: ' + todos.length)
 
 			var TodoView = Backbone.View.extend({
@@ -36,12 +51,13 @@
 				el : 'body',
 				//Cache the template function for a single item
 				todoTpl: function(todos){
-					result = '<ul>';
+					result = '<div>';
 					console.log(todos);
 					todos.forEach(function(todo){
-						result += '<li>' + todo.title + '</li>'
+						var check = '<input type = "checkbox"' + (todo.completed? 'checked="checked"' : '') + '>'
+						result += '<div>' + check  + todo.title + '</div>'
 					})
-					return result += '</ul>';
+					return result += '</div>';
 				},
 
 				model: todos,
