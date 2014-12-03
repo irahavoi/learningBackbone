@@ -21,15 +21,30 @@
 				}
 			});
 
+			var TodosCollection = Backbone.Collection.extend({
+				model: Todo
+			});
+
+			var myTodo = new Todo({title : 'Read the Backbone book', id : 2});
+			var todos = new TodosCollection([myTodo]);
+			console.log('Collection size: ' + todos.length)
+
 			var TodoView = Backbone.View.extend({
 				tagName : 'li',
 				className : 'container',
 				id : 'todos',
 				el : 'body',
 				//Cache the template function for a single item
-				todoTpl: _.template("<div>An example template</div>"),
+				todoTpl: function(todos){
+					result = '<ul>';
+					console.log(todos);
+					todos.forEach(function(todo){
+						result += '<li>' + todo.title + '</li>'
+					})
+					return result += '</ul>';
+				},
 
-				model: new Todo(),
+				model: todos,
 
 				events: {
 					'dblclick label' : 'edit',
