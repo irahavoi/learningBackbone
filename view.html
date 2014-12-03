@@ -13,10 +13,23 @@
 	</script>
 	<script>
 		(function(){
+
+			var Todo = Backbone.Model.extend({
+				defaults: {
+					title: '',
+					completed: false
+				}
+			});
+
 			var TodoView = Backbone.View.extend({
 				tagName : 'li',
+				className : 'container',
+				id : 'todos',
+				el : 'body',
 				//Cache the template function for a single item
-				todoTpl: _.template("An example template"),
+				todoTpl: _.template("<div>An example template</div>"),
+
+				model: new Todo(),
 
 				events: {
 					'dblclick label' : 'edit',
@@ -47,6 +60,7 @@
 			var todoView = new TodoView();
 
 			console.log(todoView.el);
+			todoView.render();
 
 		})();
 	</script>
