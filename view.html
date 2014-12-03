@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+	</script>
+	<script src="http://documentcloud.github.com/underscore/underscore-min.js">
+	</script>
+	<script src="http://documentcloud.github.com/backbone/backbone-min.js">
+	</script>
+	<script>
+		(function(){
+			var TodoView = Backbone.View.extend({
+				tagName : 'li',
+				//Cache the template function for a single item
+				todoTpl: _.template("An example template"),
+
+				events: {
+					'dblclick label' : 'edit',
+					'keypress .editi' : 'updateOnEnter',
+					'blur .edit': 'close'
+				},
+
+				//Rerender the titles of the todo item
+				render : function(){
+					this.$el.html(this.todoTpl(this.model.toJSON()));
+					this.input = this.$('.edit');
+					return this;
+				},
+
+				edit : function(){
+					console.log('todo: edit handler');
+				},
+
+				close : function(){
+					console.log('todo: close handler');
+				},
+
+				updateOnEnter : function(){
+					console.log('todo: keypress handler');
+				}
+			});
+
+			var todoView = new TodoView();
+
+			console.log(todoView.el);
+
+		})();
+	</script>
+</body>
+</html>
