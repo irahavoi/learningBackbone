@@ -13,7 +13,17 @@
 	</script>
 	<script>
 		(function(){
-			//Todo: underscore utility examples
+			var Todos = new Backbone.Collection();
+			Todos.add([
+				{title : 'Save money for downpayment', completed : false},
+				{title : 'Build an awesome app and monetize it', completed : false},
+				{title : 'Become a good software developer', completed : false}
+			]);
+
+			//Iterate over models in the collection:
+			Todos.forEach(function(model){
+				console.log(model.get('title')  + ". Completed: " + model.get('completed'));
+			});
 		})();
 	</script>
 </body>
