@@ -52,6 +52,31 @@
 			//Pluck - extracts a specific attribute:
 			console.log('PLucking only titles:')
 			console.log(todos.pluck('title'));
+
+
+			//Comparator for sorting: 
+			todos.comparator = function(a,b){
+				return a.get('title') < b.get('title') ? -1 : 1;
+			};
+
+			var last = new Backbone.Model({id : 4, title : 'Z-z-z-z', completed : true});
+			var first = new Backbone.Model({id : 5, title : 'Add smb to friends', completed : true});
+
+			todos.add([last, first]);
+
+			console.log('Example of indexOf in the sorted collection:');
+			console.log('Collection size: ' + todos.size());
+			console.log('Index of the 1st item: ' + todos.indexOf(first));
+			console.log('Index of the last item: ' + todos.indexOf(last));
+
+			console.log('Example of any/somem. Checking if any id is more than 100. Both should be false. ');
+			console.log(todos.any(function(model){
+				return model.id === 100;
+			}));
+			console.log(todos.some(function(model){
+				return model.id === 100;
+			}));
+
 		})();
 	</script>
 </body>
