@@ -77,6 +77,22 @@
 				return model.id === 100;
 			}));
 
+
+			console.log("Is collection empty?");
+			console.log(todos.isEmpty());
+
+			//Grouping example:
+			console.log('Grouping todos by "completed attribute. and logging those completed');
+			var groupBy = todos.groupBy('completed');
+			console.log('logging those completed:');
+			var completed = new Backbone.Collection(groupBy[true]);
+			console.log(completed.pluck('title'));
+			console.log('logging those not completed:');
+			var notCompleted = new Backbone.Collection(groupBy[false]);
+			console.log(notCompleted.pluck('title'));
+
+
+
 		})();
 	</script>
 </body>
