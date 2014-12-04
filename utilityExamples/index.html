@@ -48,6 +48,10 @@
 			console.log(todos.max(function(model){
 				return model.id;
 			}).id);
+
+			//Pluck - extracts a specific attribute:
+			console.log('PLucking only titles:')
+			console.log(todos.pluck('title'));
 		})();
 	</script>
 </body>
