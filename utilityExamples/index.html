@@ -15,9 +15,9 @@
 		(function(){
 			var todos = new Backbone.Collection();
 			todos.add([
-				{title : 'Save money for downpayment', completed : false},
-				{title : 'Build an awesome app and monetize it', completed : false},
-				{title : 'Become a good software developer', completed : false}
+				{id : 1, title : 'Save money for downpayment', completed : false},
+				{id : 2, title : 'Build an awesome app and monetize it', completed : false},
+				{id : 3, title : 'Become a good software developer', completed : false}
 			]);
 
 			//Sort the collection by the title:
@@ -26,9 +26,28 @@
 			});
 
 			//Iterate over models in the collection:
+			console.log("Sorting example:");
 			sorted.forEach(function(model){
 				console.log(model.get('title')  + ". Completed: " + model.get('completed'));
 			});
+
+
+			//Create a new collection by mapping each value through a transform gunction:
+			var count = 1;
+			console.log("Mapping example:");
+			console.log(todos.map(function(model){
+				return count++ + ". " + model.get('title');
+			}));
+
+			//Retrieve the item with min/max value of the specified attribute:
+			console.log('min example:');
+			console.log(todos.min(function(model){
+				return model.id;
+			}).id);
+			console.log('max example:');
+			console.log(todos.max(function(model){
+				return model.id;
+			}).id);
 		})();
 	</script>
 </body>
