@@ -91,7 +91,25 @@
 			var notCompleted = new Backbone.Collection(groupBy[false]);
 			console.log(notCompleted.pluck('title'));
 
+			//Pick:
+			console.log('picking a title attribute:')
+			console.log(todos.at(0).pick('title'));
 
+			console.log('picking all attributes except title (omit)')
+			console.log(todos.at(0).omit('title'));
+
+			console.log('Values:');
+			console.log(todos.at(0).values());
+			console.log('Keys:');
+			console.log(todos.at(0).keys());
+
+			console.log('Creating pairs of key-value');
+			console.log(todos.at(0).pairs()[0]);
+			console.log(todos.at(0).pairs()[1]);
+			console.log(todos.at(0).pairs()[2]);
+
+			console.log('Creating the object with inverted keys and values:')
+			console.log(todos.at(0).invert());
 
 		})();
 	</script>
