@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+	</script>
+	<script src="http://documentcloud.github.com/underscore/underscore-min.js">
+	</script>
+	<script src="http://documentcloud.github.com/backbone/backbone-min.js">
+	</script>
+	<script>
+		(function(){
+			var Todo = Backbone.Model.extend({
+				defaults: {
+					title: '',
+					completed: false
+				}
+			});
+
+			var TodosCollection = Backbone.Collection.extend({
+				model: Todo,
+				url: 'todos.json', // <-- Url for fetching this collection from the server
+
+			});
+
+
+
+
+			todos = new TodosCollection();
+			todos.fetch({
+				success : function(){
+					var todo = todos.at(0);
+					console.log(todo.destroy()); // <-- Sends a DELETE request to the server if the model is not new. Otherwise returns false
+				},
+				error : function(){
+					console.log('error!');
+				}
+			}); // sends HTTP GET to todos.json
+
+		})();
+	</script>
+</body>
+</html>
