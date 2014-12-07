@@ -22,6 +22,12 @@
 
 			});
 
+			//Add a custom event:
+			dancer.on('all', function(eventName){
+				console.log(eventName + ' just occurred.');
+
+			});
+
 			//trigger the custom event:
 			dancer.trigger('dance', 'madman');
 
