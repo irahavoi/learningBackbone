@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+	</script>
+	<script src="http://documentcloud.github.com/underscore/underscore-min.js">
+	</script>
+	<script src="http://documentcloud.github.com/backbone/backbone-min.js">
+	</script>
+	<script>
+		(function(){
+			var dancer = {};
+			_.extend(dancer, Backbone.Events);
+
+			//Add a custom event:
+			dancer.on('dance', function(msg){
+				console.log('dancing like a ' + msg);
+
+			});
+
+			//trigger the custom event:
+			dancer.trigger('dance', 'madman');
+
+		})();
+	</script>
+</body>
+</html>
