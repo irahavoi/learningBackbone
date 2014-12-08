@@ -16,11 +16,17 @@
 			var dancer = {};
 			_.extend(dancer, Backbone.Events);
 
-			//Add a custom event:
-			dancer.on('dance', function(msg){
-				console.log('dancing like a ' + msg);
+			var sweat = function(){
+				console.log('Sweating..');
+			};
 
-			});
+			var enjoy = function(){
+				console.log('Enjoying..');
+			}
+
+			//Add a custom event:
+			dancer.on('dance', sweat);
+			dancer.on('dance', enjoy);
 
 			//Add a custom event:
 			dancer.on('all', function(eventName){
@@ -29,7 +35,15 @@
 			});
 
 			//trigger the custom event:
-			dancer.trigger('dance', 'madman');
+			dancer.trigger('dance');
+
+			//remove 'sweat' listener:
+			dancer.off('dance', sweat);
+
+
+			console.log('trigger  dance again:')
+			//trigger the custom event:
+			dancer.trigger('dance');
 
 		})();
 	</script>
