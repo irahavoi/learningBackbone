@@ -24,9 +24,14 @@
 				console.log('Enjoying..');
 			}
 
+			var speak = function(){
+				console.log('blah blah blah');
+			}
+
 			//Add a custom event:
 			dancer.on('dance', sweat);
 			dancer.on('dance', enjoy);
+			dancer.on('speak', speak);
 
 			//Add a custom event:
 			dancer.on('all', function(eventName){
@@ -45,6 +50,21 @@
 			//trigger the custom event:
 			dancer.trigger('dance');
 
+
+			console.log('Triggering multiple events simultaneously:')
+			dancer.trigger('speak dance');
+
+			//On and Off addd listeners to the given instance of objects.
+			//If you want your object to listen to events that happen to other objects,
+			//Use listenTo() and stopListening()
+			console.log('listenTo() example:')
+			var observer = _.extend([], Backbone.Events);
+			observer.listenTo(dancer, 'speak', function(event){
+				console.log('Observer says: I heard the dancer speaking!');
+			});
+
+			dancer.trigger('speak');
+ 
 		})();
 	</script>
 </body>
