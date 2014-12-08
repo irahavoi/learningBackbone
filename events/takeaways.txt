@@ -1,0 +1,9 @@
+* If you use on and off and remove views and their corresponding models at the same
+time, there are generally no problems. But a problem arises when you remove a view
+that had registered to be notified about events on a model, but you don’t remove the
+model or call off to remove the view’s event handler. Since the model has a reference
+to the view’s callback function, the JavaScript garbage collector cannot remove the view
+from memory. This is called a ghost view and is a common form of memory leak since
+the models generally tend to outlive the corresponding views during an application’s
+lifecycle.
+So, if your object is temporal, do a cleanup (unbind all listeners) before removing it.
