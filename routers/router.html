@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+	</script>
+	<script src="http://documentcloud.github.com/underscore/underscore-min.js">
+	</script>
+	<script src="http://documentcloud.github.com/backbone/backbone-min.js">
+	</script>
+	<script>
+		(function(){
+			var TodoRouter = Backbone.Router.extend({
+				routes : {
+					'about' : 'showAbout',
+					'todo/:id' : 'getTodo',
+					'*path' : 'defaultRoute'
+				},
+				showAbout : function(){
+					console.log('todo: show about');
+				},
+				getTodo : function(id){
+					console.log('todo: get todo with id ' + id);
+				},
+
+				defaultRoute : function(route){
+					console.log('invalid route: ' + route);
+				}
+			});
+
+			var myRouter = new TodoRouter();
+			Backbone.history.start();
+
+		})();
+	</script>
+</body>
+</html>

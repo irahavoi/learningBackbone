@@ -1,0 +1,1 @@
+* Routers are used when uou want to make your spa bookmarakable, searchable, shareable and back-button-able.
