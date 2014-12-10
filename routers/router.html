@@ -28,11 +28,17 @@
 
 				defaultRoute : function(route){
 					console.log('invalid route: ' + route);
+				},
+
+				viewTodo : function(id){
+					console.log('Look, ma, the url has changed!');
+					this.navigate('todo/' + id + '/edit');
 				}
 			});
 
 			var myRouter = new TodoRouter();
 			Backbone.history.start();
+			myRouter.viewTodo(5);
 
 		})();
 	</script>
