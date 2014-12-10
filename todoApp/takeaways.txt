@@ -1,0 +1,2 @@
+* Templates for your views can be inserted in <script id="myTmplt"> tags. Browser will ignore them.
+* Backbone is template agnostic, so you can choose whatever library you like: Underscore, Mustache, Handlebars.  
