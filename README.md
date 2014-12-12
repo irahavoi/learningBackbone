@@ -1,1 +1,1 @@
-This repo contains some examples of using Backbone.js
+This repo contains some examples of using Backbone.js as described in the book "Developing Backbone.js" by Addy Osmani
