@@ -11,6 +11,7 @@ app.LibraryView = Backbone.View.extend({
 	},
 
 	render : function(){
+		console.log('rendering a collection');
 		this.collection.each(function( item ){
 			this.renderBook( item );
 		} , this);
@@ -19,10 +20,13 @@ app.LibraryView = Backbone.View.extend({
 	//Render a book by creating a a Bookview and appending the
 	//element it renders to the library's element
 	renderBook : function( item ){
+		console.log('rendering a book');
 		var bookView = new app.BookView({
 			model : item
 		});
 
-		this.$el.append( bookView);
+		console.log(bookView);
+
+		this.$el.append( bookView.render().el );
 	}
 });

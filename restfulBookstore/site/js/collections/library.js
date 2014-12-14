@@ -2,6 +2,6 @@
 
 var app = app || {};
 
-app.Library = Backbone.Collections.extend({
-	model = app.Book
+app.Library = Backbone.Collection.extend({
+	model : app.Book
 });

@@ -8,6 +8,7 @@ app.BookView = Backbone.View.extend({
 	template : _.template($('#bookTemplate').html()),
 
 	render : function(){
+		console.log('rendering a book');
 		this.$el.html(this.template(this.model.toJSON()));
 
 		return this;
