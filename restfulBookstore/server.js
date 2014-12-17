@@ -53,6 +53,24 @@ app.get('/api/books', function(request, response){
 	});
 });
 
+app.post('/api/books', function(request, response){
+	var book = new BookModel({
+		title : request.body.title,
+		author : request.body.author,
+		releaseDate : request.body.releaseDate
+	});
+
+	book.save(function(err){
+		if( !err ){
+			return console.log( 'created' );
+		} else{
+			return console.log( err );
+		}
+	});
+
+	return response.send(book);
+});
+
 //Start server
 var port = 4711;
 app.listen(port , function(){
