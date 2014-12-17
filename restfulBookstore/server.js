@@ -43,6 +43,7 @@ app.get('/api' , function(request, response){
 					'/api/books/:id DELETE Delete the book with id of :id');
 });
 
+//Get All books:
 app.get('/api/books', function(request, response){
 	return BookModel.find(function(err, books){
 		if( !err ){
@@ -53,6 +54,18 @@ app.get('/api/books', function(request, response){
 	});
 });
 
+//Get a book:
+app.get('/api/books/:id' , function(request, response){
+	return BookModel.findById(request.params.id, function(err, book){
+		if(!err){
+			return response.send( book );
+		} else{
+			return console.log( err );
+		}
+	})
+});
+
+//Post a book:
 app.post('/api/books', function(request, response){
 	var book = new BookModel({
 		title : request.body.title,
