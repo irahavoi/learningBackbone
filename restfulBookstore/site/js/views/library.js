@@ -34,7 +34,7 @@ app.LibraryView = Backbone.View.extend({
 
 		reader.onload = function() {
              formData.coverImage = reader.result;
-             that.collection.add( new app.Book( formData ) );
+             that.collection.add( formData );
         }
         reader.readAsDataURL($("#coverImage")[0].files[0]);
 	},
