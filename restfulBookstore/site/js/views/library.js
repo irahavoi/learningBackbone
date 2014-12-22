@@ -17,26 +17,27 @@ app.LibraryView = Backbone.View.extend({
 		'click #add' : 'addBook'
 	},
 
-	addBook : function( e ){
-		console.log('adding a book');
+	addBook: function( e ) {
 		e.preventDefault();
-
 		var formData = {};
-
 		$( '#addBook div' ).children( 'input' ).each( function( i, el ) {
-			if( $( el ).val() != '' ){
-				formData[ el.id ] = $( el ).val();
+			if( $( el ).val() != '' )
+			{
+				if( el.id === 'keywords' ) {
+					formData[ el.id ] = [];
+					_.each( $( el ).val().split( ' ' ), function( keyword ) {
+						formData[ el.id ].push({ 'keyword': keyword });
+					});
+				} else if( el.id === 'releaseDate' ) {
+					formData[ el.id ] = $( '#releaseDate' ).datepicker( 'getDate' ).getTime();
+				} else {
+					formData[ el.id ] = $( el ).val();
+				}
 			}
+		// Clear input field value
+		$( el ).val('');
 		});
-
-		var reader = new FileReader();
-		var that = this;
-
-		reader.onload = function() {
-             formData.coverImage = reader.result;
-             that.collection.add( formData );
-        }
-        reader.readAsDataURL($("#coverImage")[0].files[0]);
+		this.collection.create( formData );
 	},
 
 	render : function(){
