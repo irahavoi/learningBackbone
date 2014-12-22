@@ -27,8 +27,10 @@
 		<ul>
 			<li><%= title %></li>
 			<li><%= author %></li>
-			<li><%= releaseDate %></li>
-			<li><%= keywords %></li>
+			<li><%= $.format.date(new Date(releaseDate), 'MMM yyyy') %></li>
+			<li><% _.each(keywords, function(keyObj){ %>
+				<%= keyObj.keyword %>
+			<% }) %></li>
 		</ul>
 		<button class="delete">Delete</button>
 	</script>
@@ -37,6 +39,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
 	<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+	<script src="js/lib/dateFormat.js"></script>
 	<script src="js/models/book.js"></script>
 	<script src="js/collections/library.js"></script>
 	<script src="js/views/book.js"></script>
