@@ -1,0 +1,9 @@
+* Useful articles:
+	The Responsibilities Of The Various Pieces Of Backbone.js
+	http://lostechies.com/derickbailey/2011/12/27/the-responsibilities-of-the-various-pieces-of-backbone-js/
+	Reducing Backbone Routers To Nothing More Than Configuration
+	http://lostechies.com/derickbailey/2012/01/02/reducing-backbone-routers-to-nothing-more-than-configuration/
+	3 Stages Of A Backbone Application’s Startup
+	http://lostechies.com/derickbailey/2012/02/06/3-stages-of-a-backbone-applications-startup/
+	JavaScript File & Folder Structures: Just Pick One
+	http://lostechies.com/derickbailey/2012/02/02/javascript-file-folder-structures-just-pick-one/	
