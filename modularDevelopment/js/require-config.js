@@ -1,6 +1,7 @@
 require.config({
 	//Paths allows to define aliases to long paths:
 	paths: {
+		'text' : 'lib/text',
 		'underscore': 'lib/underscore.min',
 		'jquery': 'lib/jquery.min',
 		'backbone': 'lib/backbone.min',
@@ -16,10 +17,13 @@ require.config({
 	}
 });
 
-require( ['mymodel'] , function(MyModel){
+require( ['mymodel', 'text!templates/mainView.html'] , function(MyModel, mainTemplate){
 
 	console.log('done loading my model and it\'s dependencies: ');
 	console.log('Getting model\'s content: ');
 	console.log(new MyModel().get('content'));
+	console.log('Template has also been loaded (by text.js, which is a Require.js plugin)');
+	console.log(mainTemplate);
+	
 });
 

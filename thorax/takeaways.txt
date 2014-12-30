@@ -1,0 +1,4 @@
+* Handlebars provides the power necessary to let you build semantic templates effectively with no frustration. 
+  http://handlebarsjs.com/
+ Thorax: 
+ http://thoraxjs.org/

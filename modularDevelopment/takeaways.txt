@@ -3,3 +3,6 @@
 	Benefits of RequireJS :
 		* Scripts asynchronous loading. (non-blocking loading allows the browser to render the rest of the page while loading scripts)
 		* Allows to load modules in more intelligently, having more control over when they are loaded and ensuring that modules with dependencies are loaded in the right order.
+
+* Good article on using Backbone.js along with Require.js: http://gregfranko.com/blog/using-backbone-dot-js-with-require-dot-js/
+* Pre-configured Backbone stack: https://github.com/phawk/Backbone-Stack
