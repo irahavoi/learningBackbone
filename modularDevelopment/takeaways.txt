@@ -6,3 +6,10 @@
 
 * Good article on using Backbone.js along with Require.js: http://gregfranko.com/blog/using-backbone-dot-js-with-require-dot-js/
 * Pre-configured Backbone stack: https://github.com/phawk/Backbone-Stack
+
+* Building the app with RequireJS Optimizer:
+	npm install -g requirejs
+	For cosher OS:
+	r.js -o build.js
+	For Windows:
+	r.js.cmd -o build.js
