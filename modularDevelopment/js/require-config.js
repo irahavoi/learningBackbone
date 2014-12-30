@@ -1,8 +1,10 @@
 require.config({
+	//Paths allows to define aliases to long paths:
 	paths: {
 		'underscore': 'lib/underscore.min',
 		'jquery': 'lib/jquery.min',
-		'backbone': 'lib/backbone.min'
+		'backbone': 'lib/backbone.min',
+		'mymodel' : 'model/MyModel'
 	},
 	shim: {
 		'backbone': {
@@ -14,13 +16,10 @@ require.config({
 	}
 });
 
-require( ['backbone'] , function(backbone){
-	console.log('done loading backbone: ');
-	console.log(backbone);
-	console.log('As well as its\' dependencies:');
-	console.log('Underscore:');
-	console.log(_);
-	console.log('And jquery');
-	console.log(jQuery);
+require( ['mymodel'] , function(MyModel){
+
+	console.log('done loading my model and it\'s dependencies: ');
+	console.log('Getting model\'s content: ');
+	console.log(new MyModel().get('content'));
 });
 
