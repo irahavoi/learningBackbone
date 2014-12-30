@@ -13,3 +13,9 @@
 	r.js -o build.js
 	For Windows:
 	r.js.cmd -o build.js
+
+* Require.js build.js with comments:
+	https://github.com/jrburke/r.js/blob/master/build/example.build.js
+
+* Nice article on working with r.js:
+	http://tech.pro/blog/1639/using-rjs-to-optimize-your-requirejs-project
