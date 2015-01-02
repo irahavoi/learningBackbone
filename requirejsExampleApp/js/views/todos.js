@@ -40,6 +40,18 @@ define([
 			this.input = this.$('todo-input');
 			this.input.on('blur', this.close);
 			this.input.val(content);
+		},
+
+		edit : function(){
+			console.log('todo: edit');
+		},
+
+		clear : function(){
+			console.log('todo: clear');
+		},
+
+		updateOnEnter : function(){
+			console.log('todo : updateOnEnter');
 		}
 
 	});
