@@ -1,13 +1,11 @@
-<div id="todoapp">
-	<div class="content">
-		<div id="create-todo">
-			<input id="new-todo" placeholder="What needs to be done?"
-			type="text" />
-			<span class="ui-tooltip-top">Press Enter to save this task</span>
-		</div>
-		<div id="todos">
-			<ul id="todo-list"></ul>
-		</div>
-		<div id="todo-stats"></div>
+<div class="todo <%= done ? 'done' : '' %>">
+	<div class="display">
+		<input class="check" type="checkbox" <%= done ?
+		'checked="checked"' : '' %> />
+		<div class="todo-content"></div>
+		<span class="todo-destroy"></span>
+	</div>
+	<div class="edit">
+		<input class="todo-input" type="text" value="" />
 	</div>
 </div>
