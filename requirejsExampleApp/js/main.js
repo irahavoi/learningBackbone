@@ -16,7 +16,7 @@ require.config({
 		   exports : '_'	
 		},
 		'backbone': {
-			//deps lists dependencies (anderscore and jquery) that have to be loaded before Backbone.js
+			//deps lists dependencies (underscore and jquery) that have to be loaded before Backbone.js
 			deps : ['underscore', 'jquery'],
 			// Backbone does not directly support amd, so we have to specify, which global variable is going to be expported.
 			exports: 'Backbone'

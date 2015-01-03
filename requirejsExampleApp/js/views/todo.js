@@ -82,4 +82,6 @@ define([
 		}
 
 	});
+  return TodoView;
+
 });

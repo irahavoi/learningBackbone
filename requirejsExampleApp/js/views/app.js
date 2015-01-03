@@ -41,28 +41,24 @@ define(['jquery',
 				// Re-rendering the App just means refreshing the statistics -- the rest
 		// of the app doesn't change.
 		render: function () {
-			var completed = Todos.completed().length;
+			var completed = Todos.done().length;
 			var remaining = Todos.remaining().length;
 
 			if (Todos.length) {
 				this.$main.show();
 				this.$footer.show();
 
-				this.$footer.html(this.template({
+				this.$footer.html(this.statsTemplate({
 					completed: completed,
 					remaining: remaining
 				}));
 
 				this.$('#filters li a')
-					.removeClass('selected')
-					.filter('[href="#/' + (Common.TodoFilter || '') + '"]')
-					.addClass('selected');
+					.removeClass('selected');
 			} else {
 				this.$main.hide();
 				this.$footer.hide();
 			}
-
-			this.allCheckbox.checked = !remaining;
 		},
 
 		// Add a single todo item to the list by creating a view for it, and
@@ -83,22 +79,22 @@ define(['jquery',
 		},
 
 		filterAll: function () {
-			Todos.each(this.filterOne, this);
+			Todos.each(this.filterOne, this);                                                 
 		},
 
 		// Generate the attributes for a new Todo item.
 		newAttributes: function () {
 			return {
 				title: this.$input.val().trim(),
-				order: Todos.nextOrder(),
-				completed: false
+				order: 1,
+				done: false
 			};
 		},
 
 		// If you hit return in the main input field, create new **Todo** model,
 		// persisting it to *localStorage*.
 		createOnEnter: function (e) {
-			if (e.which !== Common.ENTER_KEY || !this.$input.val().trim()) {
+			if (e.which !== 13 || !this.$input.val().trim()) {
 				return;
 			}
 
@@ -108,18 +104,19 @@ define(['jquery',
 
 		// Clear all completed todo items, destroying their models.
 		clearCompleted: function () {
-			_.invoke(Todos.completed(), 'destroy');
+			_.invoke(Todos.done(), 'destroy');
 			return false;
 		},
 
 		toggleAllComplete: function () {
-			var completed = this.allCheckbox.checked;
 
 			Todos.each(function (todo) {
 				todo.save({
-					completed: completed
+					done: done
 				});
 			});
 		}
 	});
+
+	return AppView;
 });

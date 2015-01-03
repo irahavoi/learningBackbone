@@ -15,4 +15,6 @@ define(['underscore',
 					return this.without.apply(this, this.done())	
 				}
 			});
+
+			return new TodoCollection();
 		});
