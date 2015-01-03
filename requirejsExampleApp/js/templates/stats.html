@@ -1,1 +1,10 @@
-//TODO
+<% if (total) { %>
+<span class="todo-count">
+	<span class="number"><%= remaining %></span>
+	<span class="word"><%= remaining == 1 ? 'item' : 'items' %>
+	</span> left.
+</span>
+<% } %>
+<% if (done) { %>
+<span class="todo-clear">
+	<a href="#">
