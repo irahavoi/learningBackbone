@@ -5,7 +5,7 @@ define(['jquery',
 	'collections/todos',
 	'views/todo',
 	'text!templates/stats.html'], function($, _, Backbone, Todos, TodoView, statsTemplate){
-		var AppView = Backbone.view.extend({
+		var AppView = Backbone.View.extend({
 				//Instead of generating a new element, bind the exesting skeleton of the app already present in html:
 				el : $('#todoapp'),
 
