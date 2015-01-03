@@ -1,7 +1,7 @@
 // js/models/todo.js
 
 define(['underscore', 'backbone'], function(_, Backbone){
-	var TodoModel = Backbone.extend.Model({
+	var TodoModel = Backbone.Model.extend({
 		//Default attributes for the Todo:
 		defaults : {
 			//Default content:
