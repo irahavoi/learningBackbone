@@ -2,13 +2,15 @@
 define(['jquery',
 	'underscore',
 	'backbone',
-	'collections/wishes'], function($, _, Backbone, Wishes){
+	'collections/wishes',
+	'views/wish',
+	'text!templates/stats.html'], function($, _, Backbone, Wishes, WishView, statsTemplate){
 		var AppView = Backbone.View.extend({
 				//Instead of generating a new element, bind the exesting skeleton of the app already present in html:
-				el : $('#todoapp'),
+				el : $('#wishlistapp'),
 
 				//Our template for the stats at the bottom of the app.
-				//statsTemplate : _.template(statsTemplate),
+				statsTemplate : _.template(statsTemplate),
 
 				// Delegated events for creating new items, and clearing completed ones.
 				events: {
@@ -24,9 +26,9 @@ define(['jquery',
 					console.log('initialization of the main view..');
 					this.allCheckbox = this.$('#toggle-all')[0];
 					this.$input = this.$('#new-wish');
-					this.$footer = this.$('#footer');
+					this.$footer = this.$('#wish-stats');
 					this.$main = this.$('#main');
-					this.$todoList = this.$('#wish-list');
+					this.$wishList = this.$('#wish-list');
 
 					console.log('Todo: init listeners for wishes collection updates.')
 					this.listenTo(Wishes, 'add', this.addOne);
@@ -35,61 +37,60 @@ define(['jquery',
 					this.listenTo(Wishes, 'filter', this.filterAll);
 					this.listenTo(Wishes, 'all', this.render);
 
-					console.log('Todo: fetch wishes from local store');
-					Wishes.fetch({reset:true});
+					Wishes.fetch();
 				},
 
 		// Re-rendering the App just means refreshing the statistics -- the rest
 		// of the app doesn't change.
 		render: function () {
-			console.log('Todo: refresh stats');
-			//var completed = Wishes.granted().length;
-			//var remaining = Wishes.remaining().length;
+			console.log('Rendering the main view');
+			var granted = Wishes.granted().length;
+			var remaining = Wishes.remaining().length;
 
 
-			//if (Wishes.length) {
-			//	this.$main.show();
-			//		this.$footer.show();
+			if (Wishes.length) {
+				this.$main.show();
+					this.$footer.show();
 
-			//	this.$footer.html(this.statsTemplate({
-			//		completed: completed,
-			//		remaining: remaining
-			//	}));
+				this.$footer.html(this.statsTemplate({
+					granted: granted,
+					remaining: remaining
+				}));
 
-			//	this.$('#filters li a')
-			//		.removeClass('selected');
-			//} else {
-			//	this.$main.hide();
-			//	this.$footer.hide();
-			//}
+				this.$('#filters li a')
+					.removeClass('selected');
+			} else {
+				this.$main.hide();
+				this.$footer.hide();
+			}
 		},
 
 		// Add a single todo item to the list by creating a view for it, and
 		// appending its element to the `<ul>`.
-		addOne: function (todo) {
-			//var wish = new WishView({ model: wish });
-			//this.$wishList.append(wish.render().el);
+		addOne: function (wish) {
+			console.log('adding a wish..');
+			var wishView = new WishView({ model: wish });
+			this.$wishList.append(wishView.render().el);
 		},
 
 		// Add all items in the **Wishes** collection at once.
 		addAll: function () {
-			//this.$wishList.empty();
-			//Wishes.each(this.addOne, this);
+			this.$wishList.empty();
+			Wishes.each(this.addOne, this);
 		},
 
-		filterOne: function (todo) {
-			//todo.trigger('visible');
+		filterOne: function (wish) {
+			wish.trigger('visible');
 		},
 
 		filterAll: function () {
-			//Wishes.each(this.filterOne, this);                                                 
+			Wishes.each(this.filterOne, this);                                                 
 		},
 
 		// Generate the attributes for a new Wish item.
 		newAttributes: function () {
 			return {
 				title: this.$input.val().trim(),
-				order: 1,
 				done: false
 			};
 		},
@@ -102,24 +103,24 @@ define(['jquery',
 				return;
 			}
 
-			//Wishes.create(this.newAttributes());
+			Wishes.create(this.newAttributes());
 			this.$input.val('');
 		},
 
 		// Clear all completed todo items, destroying their models.
 		clearCompleted: function () {
 			console.log('Todo: clear completed wishes');
-			//_.invoke(WIshes.granted(), 'destroy');
+			_.invoke(Wishes.granted(), 'destroy');
 			return false;
 		},
 
 		toggleAllComplete: function () {
 			console.log('Todo: toggle all')
-			//Wishes.each(function (wish) {
-			//	todo.save({
-			//		done: !done
-			//	});
-			//});
+			Wishes.each(function (wish) {
+				wish.save({
+					done: !done
+				});
+			});
 		}
 	});
 

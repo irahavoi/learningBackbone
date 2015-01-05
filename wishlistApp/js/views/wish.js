@@ -30,6 +30,15 @@ define(['jquery',
 			return this;
 		},
 
+		//Use jQuery.text to set the content of the todo item:
+		setContent : function(){
+			var content = this.model.get('content');
+			this.$('.wish-content').text(content);
+			this.input = this.$('wish-input');
+			this.input.on('blur', this.close);
+			this.input.val(content);
+		},
+
 		// Close the `"editing"` mode, saving changes to the todo.
 		close: function () {
 			var value = this.$input.val();

@@ -1,0 +1,15 @@
+<span id="wish-count"><strong><%= remaining %></strong><%= remaining === 1 ? 'item' : 'items' %> left</span>
+<ul id="filters">
+	<li>
+		<a class="selected" href="#/">All</a>
+	</li>
+	<li>
+		<a href="#/active">Active</a>
+	</li>
+	<li>
+		<a href="#/granted">Completed</a>
+	</li>
+</ul>
+<% if (granted) { %>
+	<button id="clear-granted">Clear granted (<%= granted %>)</button>
+<% } %>
