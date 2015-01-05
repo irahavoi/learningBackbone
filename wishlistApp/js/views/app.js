@@ -15,7 +15,7 @@ define(['jquery',
 				// Delegated events for creating new items, and clearing completed ones.
 				events: {
 					'keypress #new-wish':		'createOnEnter',
-					'click #clear-completed':	'clearCompleted',
+					'click #clear-granted':	'clearGranted',
 					'click #toggle-all':		'toggleAllComplete'
 				},
 
@@ -108,9 +108,9 @@ define(['jquery',
 		},
 
 		// Clear all completed todo items, destroying their models.
-		clearCompleted: function () {
-			console.log('Todo: clear completed wishes');
-			_.invoke(Wishes.granted(), 'destroy');
+		clearGranted: function () {
+			console.log('Clear granted wishes');
+			_.invoke(Wishes.granted(), 'clear');
 			return false;
 		},
 

@@ -26,6 +26,7 @@ define(['jquery',
 		render  : function(){
 			console.log('rendering..');
 			this.$el.html(this.template(this.model.toJSON()));
+			this.model.view = this;
 			this.setContent();
 			return this;
 		},
