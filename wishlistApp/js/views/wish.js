@@ -60,11 +60,6 @@ define(['jquery',
 			this.$el.removeClass('editing');
 		},
 
-		toggleCompleted : function(){
-			console.log('toggle');
-			this.model.toggle();
-		},
-
 		// If you hit `enter`, we're through editing the item.
 		updateOnEnter: function (e) {
 			if (e.keyCode === 13) {
@@ -75,6 +70,12 @@ define(['jquery',
 		// Remove the item, destroy the model from *localStorage* and delete its view.
 		clear: function () {
 			this.model.destroy();
+			this.remove();
+		},
+
+		toggleDone : function(){
+			console.log('toggle!');
+			this.model.toggle();
 		}
 	});
 
