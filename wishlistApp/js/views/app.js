@@ -1,7 +1,8 @@
 // js/views/app.js
 define(['jquery',
 	'underscore',
-	'backbone'], function($, _, Backbone){
+	'backbone',
+	'collections/wishes'], function($, _, Backbone, Wishes){
 		var AppView = Backbone.View.extend({
 				//Instead of generating a new element, bind the exesting skeleton of the app already present in html:
 				el : $('#todoapp'),
@@ -16,7 +17,7 @@ define(['jquery',
 					'click #toggle-all':		'toggleAllComplete'
 				},
 
-				// At initialization we bind to the relevant events on the `Todos`
+				// At initialization we bind to the relevant events on the `Wishes`
 				// collection, when items are added or changed. Kick things off by
 				// loading any preexisting todos that might be saved in *localStorage*.
 				initialize: function () {
@@ -28,14 +29,14 @@ define(['jquery',
 					this.$todoList = this.$('#wish-list');
 
 					console.log('Todo: init listeners for wishes collection updates.')
-					//this.listenTo(Wishes, 'add', this.addOne);
-					//this.listenTo(Wishes, 'reset', this.addAll);
-					//this.listenTo(Wishes, 'change:completed', this.filterOne);
-					//this.listenTo(Wishes, 'filter', this.filterAll);
-					//this.listenTo(Wishes, 'all', this.render);
+					this.listenTo(Wishes, 'add', this.addOne);
+					this.listenTo(Wishes, 'reset', this.addAll);
+					this.listenTo(Wishes, 'change:completed', this.filterOne);
+					this.listenTo(Wishes, 'filter', this.filterAll);
+					this.listenTo(Wishes, 'all', this.render);
 
 					console.log('Todo: fetch wishes from local store');
-					//Wishes.fetch({reset:true});
+					Wishes.fetch({reset:true});
 				},
 
 		// Re-rendering the App just means refreshing the statistics -- the rest
