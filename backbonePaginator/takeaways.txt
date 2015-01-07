@@ -1,3 +1,4 @@
+* INstall : npm install backbone.paginator
 * https://github.com/backbone-paginator/backbone.paginator <-- Backbone.Paginator
 * Backbone.Paginator supports two main pagination components:
 	Backbone.Paginator.requestPager
