@@ -1,0 +1,7 @@
+* https://github.com/backbone-paginator/backbone.paginator <-- Backbone.Paginator
+* Backbone.Paginator supports two main pagination components:
+	Backbone.Paginator.requestPager
+		For pagination of requests between a client and a server-side API
+	Backbone.Paginator.clientPager
+		For pagination of data returned from a server that you would like to further paginate
+		within the UI (for example, 60 results are returned, paginate into three pages of 20)
