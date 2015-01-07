@@ -29,6 +29,7 @@ define(['jquery',
 			console.log('rendering..');
 			this.$el.html(this.template(this.model.toJSON()));
 			this.$input = this.$('.edit');
+			this.$el.toggleClass( 'granted', this.model.get('granted') );
 			this.model.view = this;
 			this.setContent();
 			return this;

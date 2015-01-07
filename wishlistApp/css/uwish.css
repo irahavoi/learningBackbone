@@ -40,7 +40,7 @@
 	width: 40px;
 	height: auto;
 	position: absolute;
-	top: 0;
+	top: 7px;
 	bottom: 0;
 	margin: auto 0;
 	border: none;
@@ -75,6 +75,8 @@
 	line-height: 1.2;
 	-webkit-transition: color 0.4s;
 	transition: color 0.4s;
+	font-size: 20px;
+	border-bottom: 1px solid rgb(218, 205, 205);
 }
 
 .view{
@@ -169,4 +171,38 @@ button {
 	-ms-font-smoothing: antialiased;
 	-o-font-smoothing: antialiased;
 	font-smoothing: antialiased;
+}
+
+#wish-stats{
+	position: relative;
+}
+
+#clear-granted{
+	color: white;
+	position: absolute;
+	right: 7px;
+	bottom: 4px;
+	background: rgb(242, 180, 180);
+	padding: 5px;
+	border-radius: 4px;
+}
+
+#clear-granted:hover{
+	background : rgb(253, 0, 0);
+	cursor: pointer;
+}
+
+#wish-stats{
+	display: block;
+	background: rgb(255, 255, 255);
+	border-right: 63px;
+	border-top: 1px solid rgb(157, 189, 169);
+	padding-top: 11px;
+}
+
+#wish-count{
+	display: block;
+	padding-left: 7px;
+	padding-bottom: 7px;
+	color: rgb(55, 147, 115);
 }
