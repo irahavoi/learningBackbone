@@ -13,7 +13,9 @@ define(['jquery',
 		events : {
 			'click .toggle' : 'toggleDone',
 			'click button.destroy' : 'clear',
-			'keypress .edit' : 'updateOnEnter'
+			'keypress .edit' : 'updateOnEnter',
+			'dblclick label': 'edit',
+			'blur .edit': 'close'
 		},
 
 		initialize : function(){
@@ -26,6 +28,7 @@ define(['jquery',
 		render  : function(){
 			console.log('rendering..');
 			this.$el.html(this.template(this.model.toJSON()));
+			this.$input = this.$('.edit');
 			this.model.view = this;
 			this.setContent();
 			return this;
@@ -73,6 +76,12 @@ define(['jquery',
 			this.model.destroy();
 			this.remove();
 		},
+
+		// Switch this view into `"editing"` mode, displaying the input field.
+		 edit: function() {
+	 		this.$el.addClass('editing');
+	 		this.$input.focus();
+	 	},
 
 		toggleDone : function(){
 			console.log('toggle!');
