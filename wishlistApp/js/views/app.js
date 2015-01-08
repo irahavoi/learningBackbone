@@ -37,6 +37,8 @@ define(['jquery',
 					this.listenTo(Wishes, 'filter', this.filterAll);
 					this.listenTo(Wishes, 'all', this.render);
 
+					this.$input.focus();
+
 					Wishes.fetch();
 				},
 
