@@ -1,0 +1,6 @@
+* https://github.com/backbone-boilerplate/backbone-boilerplate <-- Backbone Boilerplate (excellent set of best practices
+and utilities for building Backbone.js applications, created by Backbone contributor
+Tim Branyen)
+
+* https://github.com/backbone-boilerplate/grunt-bbb <-- scaffolding,file watcher, and build capabilities.
+Installation:	npm install -g bbb
