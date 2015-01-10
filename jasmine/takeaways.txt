@@ -1,1 +1,28 @@
 * http://jasmine.github.io/edge/introduction.html <-- Jasmine
+* Each spec is a JavaScript function, described with a call to it() using a description string
+and a function. The description should describe the behavior the particular unit of code
+should exhibit and, keeping in mind BDD, should ideally be meaningful. Here’s an
+example of a basic spec:
+  it('should be incrementing in value', function(){
+    var counter = 0;
+    counter++;
+    expect(counter).toEqual(1);
+  });
+You define expectations in specs using the expect() function and an expectation
+matcher—for example, toEqual(), toBeTruthy(), toContain().
+
+* Specs are grouped into suites that we describe using Jasmine’s describe() function,
+again passing a string as a description and a function as we did for it(). The name/
+description for your suite is typically that of the component or module you’re testing.
+
+Jasmine will use the description as the group name when it reports the results of the
+specs you’ve asked it to run. A simple suite containing our sample spec could look like:
+describe('Stats', function(){
+    it('can increment a number', function(){
+    ...
+  });
+
+  it('can subtract a number', function(){
+    ...
+  });
+});
