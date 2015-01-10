@@ -10,13 +10,13 @@
 	</script>
 </head>
 <body>
-	<div data-role="page">
+	<div data-role="page" id = "firstpage">
 		<div data-role="header">
 			<h1>Page Title</h1>
 		</div>
 		<div data-role="content">
 			<p>Page content goes here.</p>
-			<a href="http://google.com">External Link</a>
+			<a href="#secondpage">go to secondpage</a>
 			<form>
 				<label for="slider-1">Slider with tooltip:</label>
 				<input type="range" name="slider-1" id="slider-1" min="0"
@@ -26,6 +26,16 @@
 		</div>
 		<div data-role="footer">
 			<h4>Page Footer</h4>
+		</div>
+	</div>
+	<div data-role="page" id="secondpage">
+		<div data-role="content" >
+			<a href="#firstdialog" data-rel="dialog" >open a page as a dialog</a>
+		</div>
+	</div>
+	<div data-role="dialog" id="firstdialog">
+		<div data-role="content">
+			<a href="#firstpage">leave dialog and go to first page</a>
 		</div>
 	</div>
 </body>
