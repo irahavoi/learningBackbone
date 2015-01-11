@@ -1,4 +1,5 @@
-* http://jasmine.github.io/edge/introduction.html <-- Jasmine
+* http://jasmine.github.io/
+* http://jasmine.github.io/edge/introduction.html <-- Jasmine documentation
 * Each spec is a JavaScript function, described with a call to it() using a description string
 and a function. The description should describe the behavior the particular unit of code
 should exhibit and, keeping in mind BDD, should ideally be meaningful. Here’s an
@@ -25,4 +26,24 @@ describe('Stats', function(){
   it('can subtract a number', function(){
     ...
   });
+});
+
+* Jasmine also supports spies—a way to mock, spy, and fake behavior in our unit tests.
+Spies replace the function they’re spying on, allowing us to simulate behavior we would
+like to mock (i.e., test without using the actual implementation).
+Spies can be used for mocking ajax requests and server responses.
+
+* Jasmine also supports specifying code that can be run before each (beforeEach()) and
+after each (afterEach()) test. This is useful for enforcing consistent conditions (such
+as resetting variables that may be required by specs).
+
+beforeEach(function(){
+   this.todo = new Backbone.Model({
+   text: 'Buy some more groceries',
+   done: false
+  });
+});
+
+it('should contain a text value if not the default value', function(){
+ expect(this.todo.get('text')).toEqual('Buy some more groceries');
 });
