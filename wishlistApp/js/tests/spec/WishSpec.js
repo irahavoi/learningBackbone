@@ -9,8 +9,9 @@ describe("Wish", function() {
     });
   });
 
-  it("should contain a 'granted' property (false by default)", function() {
+  it("should have properties initialized with default values", function() {
     expect(wish.get('granted')).toEqual(false);
+    expect(wish.get('content')).toBe('Empty wish');
   });
  
 });
