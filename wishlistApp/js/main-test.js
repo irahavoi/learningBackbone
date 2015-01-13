@@ -10,7 +10,8 @@ require.config({
 		localStorage : 'libs/backbone/backbone.localStorage-min',
 		text: 'libs/require/text',
 		jasmine : 'libs/jasmine/jasmine',
-		'jasmine-html' : 'libs/jasmine-html',
+		'jasmine-html' : 'libs/jasmine/jasmine-html',
+		boot: 'libs/jasmine/boot',
 		spec : 'tests/spec'
 	},
 
@@ -29,7 +30,11 @@ require.config({
 		},
 		'jasmine-html': {
 			deps: ['jasmine'],
-			exports: 'jasmine'
+			exports: 'window.jasmineRequire'
+		},
+		'boot': {
+			deps: ['jasmine', 'jasmine-html'],
+			exports: 'window.jasmineRequire'
 		}
 
 		
@@ -37,6 +42,17 @@ require.config({
 
 });
 
-require(['views/app'], function(AppView){
-	var app_view = new AppView();
+require(['boot'], function(boot){
+
+	 // Define all of your specs here. These are RequireJS modules.
+	  var specs = [
+	    'tests/spec/WishSpec'
+	  ];
+
+	  // Initialize the HTML Reporter and execute the environment (setup by `boot.js`)
+	  require(specs, function(){
+	  	window.onload();
+	  });
+
+
 });
