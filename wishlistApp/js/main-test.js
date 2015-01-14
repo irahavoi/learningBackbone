@@ -46,7 +46,8 @@ require(['boot'], function(boot){
 
 	 // Define all of your specs here. These are RequireJS modules.
 	  var specs = [
-	    'tests/spec/WishSpec'
+	    'tests/spec/WishSpec',
+            'tests/spec/WishListSpec',
 	  ];
 
 	  // Initialize the HTML Reporter and execute the environment (setup by `boot.js`)

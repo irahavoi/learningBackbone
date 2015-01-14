@@ -4,7 +4,7 @@ describe("Wish", function() {
   it("should load the AMD module", function(done) {
     require(['models/wish'], function (Wish) {
       expect(Wish).toBeDefined();
-      wish = new Wish();      
+      wish = new Wish();	     
       done();
     });
   });
