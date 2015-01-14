@@ -1,0 +1,5 @@
+* QUnit is a powerful JavaScript test suite written by jQuery team member Jörn Zaefferer
+and used by many large open source projects (such as jQuery and Backbone.js) to
+test their code. It’s capable of testing both standard JavaScript code in the browser and
+code on the server side (where supported environments include Rhino, V8, and
+SpiderMonkey).

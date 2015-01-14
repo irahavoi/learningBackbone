@@ -47,3 +47,12 @@ beforeEach(function(){
 it('should contain a text value if not the default value', function(){
  expect(this.todo.get('text')).toEqual('Buy some more groceries');
 });
+
+
+
+
+
+
+
+
+* https://github.com/velesin/jasmine-jquery <-- Jasmine jquery plug-in
