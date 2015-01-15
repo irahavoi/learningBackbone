@@ -6,11 +6,23 @@ equal( result, 'tinuq+enobkcab', 'Expected to get a reversed string.');
 
 
 module( 'Module One' );
-test( 'first test', function() {} );
-test( 'another test', function() {} );
+test( 'first test', function() {
+  expect(0);
+} );
+test( 'another test', function() {
+  expect(0);
+} );
 module( 'Module Two' );
-test( 'second test', function() {} );
-test( 'another test', function() {} );
+test( 'second test', function() {
+  expect(0);
+} );
+test( 'another test', function() {
+  expect(0);
+} );
 module( 'Module Three' );
-test( 'third test', function() {} );
-test( 'another test', function() {} );
+test( 'third test', function() {
+  expect(0);
+} );
+test( 'another test', function() {
+  expect(0);
+} );
