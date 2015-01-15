@@ -3,3 +3,25 @@ and used by many large open source projects (such as jQuery and Backbone.js) to
 test their code. It’s capable of testing both standard JavaScript code in the browser and
 code on the server side (where supported environments include Rhino, V8, and
 SpiderMonkey).
+
+
+* Basic assertions:
+ok ( state, message )
+Passes if the first argument is truthy
+
+equal ( actual, expected, message )
+A simple comparison assertion with type coercion
+
+notEqual ( actual, expected, message )
+The opposite of equal()
+
+expect( amount )
+The number of assertions expected to run within each test
+
+strictEqual( actual, expected, message)
+Offers a much stricter comparison than equal() and is considered the preferred
+method of checking equality, as it avoids stumbling on subtle coercion bugs
+
+deepEqual( actual, expected, message )
+Similar to strictEqual, comparing the contents (with ===) of the given objects,
+arrays, and primitives
