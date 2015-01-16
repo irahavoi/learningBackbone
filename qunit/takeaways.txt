@@ -38,4 +38,5 @@ test( 'third test', function() {} );
 test( 'another test', function() {} );
 
 
-*Use setup and teardown functions for initializing your modules and cleaning them up.
+* Use setup and teardown functions for initializing your modules and cleaning them up.
+This is ideal for defining new instances of views, collections, models, or routers from a project that we can then reference across multiple tests.
