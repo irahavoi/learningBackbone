@@ -37,3 +37,5 @@ module( 'Module Three' );
 test( 'third test', function() {} );
 test( 'another test', function() {} );
 
+
+*Use setup and teardown functions for initializing your modules and cleaning them up.
