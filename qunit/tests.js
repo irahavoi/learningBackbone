@@ -5,7 +5,15 @@ equal( result, 'tinuq+enobkcab', 'Expected to get a reversed string.');
 });
 
 
-module( 'Module One' );
+module( 'Module One' , {
+  setup : function(){
+    console.log('setting up module one..');
+  },
+  teardown : function(){
+    console.log('Tearing down module one..')
+  }
+});
+
 test( 'first test', function() {
   expect(0);
 } );
