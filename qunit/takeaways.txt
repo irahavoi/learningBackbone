@@ -46,3 +46,7 @@ This is ideal for defining new instances of views, collections, models, or route
 * Asunc tests: Writing QUnit tests for asynchronous code is made possible via the start() and stop()
 methods, which programmatically set the start and stop points during such tests.
 Also asyncTest() may be used.
+
+
+* http://sinonjs.org/ <-- SinonJS Standalone test spies, stubs and mocks library
+* http://sinonjs.org/qunit/ <-- sinonJS qunit integration adapter
