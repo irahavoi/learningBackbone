@@ -40,3 +40,9 @@ test( 'another test', function() {} );
 
 * Use setup and teardown functions for initializing your modules and cleaning them up.
 This is ideal for defining new instances of views, collections, models, or routers from a project that we can then reference across multiple tests.
+
+* Fixtures area is used for tests changing the dom (fixtures are reset between tests)
+
+* Asunc tests: Writing QUnit tests for asynchronous code is made possible via the start() and stop()
+methods, which programmatically set the start and stop points during such tests.
+Also asyncTest() may be used.
