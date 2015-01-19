@@ -50,3 +50,7 @@ Also asyncTest() may be used.
 
 * http://sinonjs.org/ <-- SinonJS Standalone test spies, stubs and mocks library
 * http://sinonjs.org/qunit/ <-- sinonJS qunit integration adapter
+
+
+
+* Good reads : http://msdn.microsoft.com/en-us/magazine/gg749824.aspx <-- automating js testing with QUnit
